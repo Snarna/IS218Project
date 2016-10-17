@@ -11,6 +11,8 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../css/signup.css" rel="stylesheet">
+    <!-- My Style Sheet-->
+    <link href="../css/mystyle.css" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
   </head>
