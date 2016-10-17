@@ -32,6 +32,16 @@ class dbc {
 		}
 	}
 
+	public function do_insert_query($query){
+		try{
+			$result = $this->con->query($query);
+			return $result;
+		}
+		catch(Exception $e){
+			return $e;
+		}
+	}
+
 }
 
 ?>

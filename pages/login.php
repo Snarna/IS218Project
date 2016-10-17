@@ -85,7 +85,7 @@
         <br>
         <form class="form-login">
           <h2 class="form-login-heading">Please Login</h2>
-          <div class="alert alert-danger" id="loginresponsediv">
+          <div class="alert alert-danger" id="loginresponsediv" style="display:none;">
           </div>
           <label for="inputemail" class="sr-only">Email address</label>
           <input type="email" id="inputemail" class="form-control" placeholder="Email address" required autofocus>

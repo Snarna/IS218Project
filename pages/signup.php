@@ -15,6 +15,53 @@
     <link href="../css/mystyle.css" rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
+    <!-- jQuery Core -->
+    <script src="../js/jquery.js"></script>
+    <!-- My Script -->
+    <script>
+      $(document).ready(function(){
+
+        //On Form Submit
+        $("form").submit(function(event){
+          //Hide Old Msg
+          $("#signupresponsediv").hide();
+
+          //Prevent Submit
+          event.preventDefault();
+
+          //Get Data From Form
+          var email = $("#email").val();
+          var firstname = $("#firstname").val();
+          var lastname = $("#lastname").val();
+          var password = $("#password").val();
+          var passwordconfirm = $("#passwordconfirm").val();
+          var sq1 = $("#secquestion1").val();
+          var sa1 = $("#secquestion1ans").val();
+          var sq2 = $("#secquestion2").val();
+          var sa2 = $("#secquestion2ans").val();
+
+          if(password === passwordconfirm){
+            $.ajax({
+              url:"../classes/signup.class.php",
+              type: "POST",
+              data:{email:email, firstname:firstname, lastname:lastname, password:password, sq1:sq1, sa1:sa1, sq2:sq2, sa2:sa2},
+              success:function(data){
+                console.log("Data:"+data);
+              },
+              error:function(err){
+                $("#signupresponsediv").html("Sign up failed! with Error:" + err);
+                $("#signupresponsediv").show();
+              }
+            });
+          }
+          else{
+            $("#signupresponsediv").html("Passwords don't match.");
+            $("#signupresponsediv").show();
+          }
+
+        });
+      });
+    </script>
   </head>
 
   <body>
@@ -50,6 +97,8 @@
       <br>
       <form class="form-signup">
         <h2 class="form-signup-heading">Sign Up Form</h2>
+        <div class="alert alert-danger" id="signupresponsediv" style="display:none;">
+        </div>
         <div class="form-group">
           <label for="email" class="col-form-label">Email <span class="requiredstar">*</span> </label>
           <input type="email" class="form-control" id="email" required>
@@ -91,7 +140,7 @@
           <input type="text" class="form-control" id="secquestion2ans" required>
         </div>
         <br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up!</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
       </form>
 
     </div> <!-- /container -->
