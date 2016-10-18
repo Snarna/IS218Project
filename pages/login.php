@@ -13,8 +13,12 @@
     <link href="../css/login.css" rel="stylesheet">
     <!-- My Style Sheet-->
     <link href="../css/mystyle.css" rel="stylesheet">
+    <!-- CSS3 Animation -->
+    <link rel="stylesheet" href="../css/animate.css">
     <!-- Favicon -->
     <link rel="icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
+
+
     <!-- jQuery Core -->
     <script src="../js/jquery.js"></script>
     <!-- My JavaScript Code -->
@@ -40,11 +44,26 @@
             type: "POST",
             data: {email:email, password:password},
             success: function(data){
-              $("#loginresponsediv").html(data);
-              $("#loginresponsediv").show();
+              if(data === "pass"){
+                //Success
+                window.location.href = "../pages/home.php";
+              }
+              else{
+                $("#loginresponsediv").html(data);
+                $("#loginresponsediv").show();
+                $("#loginresponsediv").addClass("animated shake");
+                $("#loginresponsediv").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){
+                  $("#loginresponsediv").removeClass("animated shake");
+                });
+              }
             },
             error: function(err){
-              console.log("Err:" + err);
+              $("#loginresponsediv").html(data);
+              $("#loginresponsediv").show();
+              $("#loginresponsediv").addClass("animated shake");
+              $("#loginresponsediv").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){
+                $("#loginresponsediv").removeClass("animated shake");
+              });
             }
           });
         }
@@ -71,11 +90,8 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">More Items</a></li>
-              </ul>
               <ul class="nav navbar-nav navbar-right">
+                <li><a href="signup.php">Sign Up</a></li>
                 <li class="active"><a href="../pages/login.php">Login</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
@@ -83,7 +99,7 @@
         </nav>
         <br>
         <br>
-        <form class="form-login">
+        <form class="form-login animated fadeIn">
           <h2 class="form-login-heading">Please Login</h2>
           <div class="alert alert-danger" id="loginresponsediv" style="display:none;">
           </div>

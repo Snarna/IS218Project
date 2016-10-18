@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sign In Page</title>
+    <title>Forgot Password Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -13,13 +12,15 @@
     <link href="../css/signup.css" rel="stylesheet">
     <!-- My Style Sheet-->
     <link href="../css/mystyle.css" rel="stylesheet">
+    <!-- CSS3 Animation -->
+    <link rel="stylesheet" href="../css/animate.css">
     <!-- Favicon -->
     <link rel="icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
   </head>
 
   <body>
     <div class="container">
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top mytransparent">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -34,14 +35,9 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">More Items</a></li>
-              </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="../pages/signup.html">Sign Up</a></li>
-                <li><a href="../pages/login.html">Login</a></li>
-                <li><a href="../pages/logout.html">Logout</a></li>
+                <li><a href="../pages/signup.php">Sign Up</a></li>
+                <li><a href="../pages/login.php">Login</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->

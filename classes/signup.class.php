@@ -22,31 +22,11 @@ $result = $dbc->do_insert_query($query);
 
 //If Success
 if($result){
-  header("Location https://localhost/pages/signupsuccess.php");
+  echo "pass";
 }
 else{
-  echo $result;
+  echo "This shouldn't happen:" . $result;
 }
-//If result is not a string
-/*
-if(!is_string($result)){
-  if($result->num_rows == 1){
-    while($row = $result->fetch_assoc()){
-      //Success
-      $_SESSION['loginstatus'] = "1";
-      $_SESSION['email'] = $row['email'];
-      $_SESSION['firstname'] = $row['firstname'];
-      $_SESSION['lastname'] = $row['lastname'];
-      header('Location: http://localhost/pages/home.php');
-      die();
-    }
-  }
-  else{
-    echo "Wrong email or password.";
-  }
-}
-else{
-  echo "Somthing went wrong so badly..";
-}*/
+
 
 ?>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,8 +12,12 @@
     <link href="../css/signup.css" rel="stylesheet">
     <!-- My Style Sheet-->
     <link href="../css/mystyle.css" rel="stylesheet">
+    <!-- CSS3 Animation -->
+    <link rel="stylesheet" href="../css/animate.css">
     <!-- Favicon -->
     <link rel="icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
+
+
     <!-- jQuery Core -->
     <script src="../js/jquery.js"></script>
     <!-- My Script -->
@@ -46,17 +49,27 @@
               type: "POST",
               data:{email:email, firstname:firstname, lastname:lastname, password:password, sq1:sq1, sa1:sa1, sq2:sq2, sa2:sa2},
               success:function(data){
-                console.log("Data:"+data);
+                if(data === "pass"){
+                  window.location.href = "../pages/signupsuccess.php";
+                }
               },
               error:function(err){
                 $("#signupresponsediv").html("Sign up failed! with Error:" + err);
                 $("#signupresponsediv").show();
+                $("#signupresponsediv").addClass("animated shake");
+                $("#signupresponsediv").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){
+                  $("#signupresponsediv").removeClass("animated shake");
+                });
               }
             });
           }
           else{
             $("#signupresponsediv").html("Passwords don't match.");
             $("#signupresponsediv").show();
+            $("#signupresponsediv").addClass("animated shake");
+            $("#signupresponsediv").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend", function(){
+              $("#signupresponsediv").removeClass("animated shake");
+            });
           }
 
         });
@@ -81,21 +94,16 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">More Items</a></li>
-              </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="signup.php">Sign Up</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li><a href="logout.php">Logout</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
       <br>
       <br>
-      <form class="form-signup">
+      <form class="form-signup animated fadeIn">
         <h2 class="form-signup-heading">Sign Up Form</h2>
         <div class="alert alert-danger" id="signupresponsediv" style="display:none;">
         </div>

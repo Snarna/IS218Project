@@ -1,3 +1,21 @@
+<?php
+// Initialize the session.
+// If you are using session_name("something"), don't forget it now!
+session_start ();
+
+// Unset all of the session variables.
+$_SESSION = array ();
+
+// If it's desired to kill the session, also delete the session cookie.
+// Note: This will destroy the session, and not just the session data!
+if (ini_get ( "session.use_cookies" )) {
+	$params = session_get_cookie_params ();
+	setcookie ( session_name (), '', time () - 42000, $params ["path"], $params ["domain"], $params ["secure"], $params ["httponly"] );
+}
+
+// Finally, destroy the session.
+session_destroy ();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,13 +31,15 @@
     <link href="../css/logout.css" rel="stylesheet">
     <!-- My Style Sheet-->
     <link href="../css/mystyle.css" rel="stylesheet">
+    <!-- CSS3 Animation -->
+    <link rel="stylesheet" href="../css/animate.css">
     <!-- Favicon -->
     <link rel="icon" href="http://sstatic.net/stackoverflow/img/favicon.ico">
   </head>
 
   <body>
     <div class="container">
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top mytransparent">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -35,25 +55,21 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">More Items</a></li>
+                <li><a href="../pages/login.php">Home</a></li>
+                <li><a href="#">More Pages</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="../pages/signup.php">Sign Up</a></li>
-                <li><a href="../pages/login.php">Login</a></li>
-                <li class="active"><a href="../pages/logout.php">Logout</a></li>
+              	<li class="active"><a href="../pages/login.php">Login</a></li>
               </ul>
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
       <br>
-      <form class="form-signin">
-        <div class="row">
+        <div class="row animated fadeInUp">
           <h1>
-            You Have Successfuly Logged Out
+            You Have Successfully Logged Out.
           </h1>
         </div>
-      </form>
 
     </div> <!-- /container -->
   </body>

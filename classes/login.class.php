@@ -22,11 +22,11 @@ if(!is_string($result)){
     while($row = $result->fetch_assoc()){
       //Success
       $_SESSION['loginstatus'] = "1";
+      $_SESSION['id'] = $row['id'];
       $_SESSION['email'] = $row['email'];
       $_SESSION['firstname'] = $row['firstname'];
       $_SESSION['lastname'] = $row['lastname'];
-      header('Location: http://localhost/pages/home.php');
-      die();
+      echo "pass";
     }
   }
   else{
