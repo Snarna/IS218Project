@@ -7,10 +7,10 @@ class dbc {
 	private $con;
 
 	public function __construct(){
-		$this->servername = "localhost";
-		$this->username = "snarna";
-		$this->password = "limingjie";
-		$this->database = "is218pj";
+		$this->servername = "sql2.njit.edu";
+		$this->username = "ml289";
+		$this->password = "Gd2PyqnI1";
+		$this->database = "ml289";
 	}
 
 	public function connect_database(){
