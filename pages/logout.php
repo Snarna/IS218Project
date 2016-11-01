@@ -54,10 +54,6 @@ session_destroy ();
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
-                <li><a href="../pages/login.php">Home</a></li>
-                <li><a href="#">More Pages</a></li>
-              </ul>
               <ul class="nav navbar-nav navbar-right">
               	<li class="active"><a href="../pages/login.php">Login</a></li>
               </ul>
